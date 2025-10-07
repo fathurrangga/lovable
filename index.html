@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Cerita yang Seharusnya Tidak Gelap</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="particles-js"></div>
+    
+    <div class="book-container">
+        <div id="book" class="book">
+            <div class="book-spine"></div>
+
+            <!-- Halaman 1: Sampul Depan -->
+            <div class="page cover" id="p1">
+                <h1>Cerita yang Seharusnya Tidak Gelap</h1>
+                <p>Geser untuk membuka</p>
+            </div>
+
+            <!-- Halaman 2: Pengakuan -->
+            <div class="page" id="p2">
+                <div class="page-content">
+                    <div class="text-content">
+                        <h2>Pengakuan.</h2>
+                        <p>Di halaman ini, aku mengakui segalanya. Jarum jamku berhenti malam itu. Aku tertidur. Maafkan aku karena membiarkanmu sendirian dalam sunyi. Tidak ada pembenaran untuk itu, dan itu sepenuhnya salahku.</p>
+                    </div>
+                    <div class="image-content">
+                        <img src="images/kenangan1.jpeg" alt="Foto Dirinya">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Halaman 3: Kenangan 1 -->
+            <div class="page" id="p3">
+                <div class="page-content">
+                    <div class="image-content">
+                         <img src="images/kenangan2.jpg" alt="Kenangan 1">
+                    </div>
+                    <div class="text-content">
+                         <p class="caption">"Dunia menjadi lebih terang saat kamu tersenyum. Aku minta maaf telah meredupkan cahaya seindah ini."</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Halaman 4: Kenangan 2 (Video) -->
+            <div class="page" id="p4">
+                 <div class="page-content">
+                    <div class="text-content">
+                        <p class="caption">"Melihatmu seceria ini adalah hal terbaik di duniaku. Kamu terlalu berharga untuk dibuat sedih. Maafkan aku, ya?"</p>
+                    </div>
+                    <div class="image-content">
+                        <video src="images/keimutan.mp4" autoplay loop muted playsinline alt="Video Kenangan"></video>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Halaman 5: Janjiku -->
+            <div class="page" id="p5">
+                <div class="final-page-content">
+                    <h2>Janjiku.</h2>
+                    <p>Bantu aku menyalakannya kembali.</p>
+                    <img src="images/lentera.png" alt="Lentera Padam" class="lentera">
+                </div>
+            </div>
+
+            <!-- Halaman 6: Kesempatan Baru -->
+            <div class="page" id="p6">
+               <div class="final-page-content">
+                   <h2>Kesempatan Baru.</h2>
+                   <p>Maukah kita menulis halaman selanjutnya bersama?</p>
+                   <div class="button-container">
+                       <button id="final-button">Tentu, kita tulis cerita baru</button>
+                       <button id="no-button">Tidak</button>
+                   </div>
+               </div>
+            </div>
+
+            <!-- Halaman 7: Sampul Belakang -->
+            <div class="page cover" id="p7">
+                <!-- Ini adalah sampul belakang buku, bisa dikosongkan atau diberi konten -->
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
