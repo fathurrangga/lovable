@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-    // Logika swipe untuk buku (tidak berubah)
+    // Logika swipe untuk buku
     book.addEventListener('touchstart', (e) => {
         startX = e.touches[0].clientX;
     }, { passive: true });
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         startX = 0; endX = 0;
     });
 
-    // Logika klik untuk buku (tidak berubah)
+    // Logika klik untuk buku
     book.addEventListener('click', (e) => {
         if (Math.abs(startX - endX) > 10) return;
         const rect = book.getBoundingClientRect();
@@ -73,73 +73,12 @@ document.addEventListener('DOMContentLoaded', () => {
         else { goPrevPage(); }
     });
 
-    // Tombol 'Tentu' (tidak berubah)
+    // Tombol 'Tentu'
     const finalButton = document.getElementById('final-button');
     if (finalButton) {
         finalButton.addEventListener('click', (e) => {
             e.stopPropagation();
-            alert("Terima kasih... Cerita baru kita dimulai :)");
-        });
-    }
-
-    // --- [PERBAIKAN TOTAL] LOGIKA TOMBOL 'TIDAK' DENGAN DETEKSI 'TAP' ---
-    const noButton = document.getElementById('no-button');
-    if (noButton) {
-        let isMoving = false;
-
-        const moveButton = () => {
-            if (isMoving) return;
-            isMoving = true;
-
-            const container = noButton.parentElement;
-            const yesButton = document.getElementById('final-button');
-            const containerRect = container.getBoundingClientRect();
-            const yesRect = yesButton.getBoundingClientRect();
-            const noRect = noButton.getBoundingClientRect();
-            const maxX = containerRect.width - noRect.width;
-            const maxY = containerRect.height - noRect.height;
-            let newX, newY;
-
-            while (true) {
-                newX = Math.random() * maxX;
-                newY = Math.random() * maxY;
-                const yesRelativeX = yesRect.left - containerRect.left;
-                const yesRelativeY = yesRect.top - containerRect.top;
-                const collision = (newX < yesRelativeX + yesRect.width && newX + noRect.width > yesRelativeX && newY < yesRelativeY + yesRect.height && newY + noRect.height > yesRelativeY);
-                if (!collision) break;
-            }
-            noButton.style.left = `${newX}px`;
-            noButton.style.top = `${newY}px`;
-            setTimeout(() => { isMoving = false; }, 300);
-        };
-
-        // Logika untuk Desktop: Pindah saat kursor mendekat
-        noButton.addEventListener('mouseover', moveButton);
-
-        // Logika Kustom untuk Mobile: Pindah setelah 'tap' yang valid
-        let touchStartX = 0, touchStartY = 0, touchStartTime = 0;
-
-        noButton.addEventListener('touchstart', (e) => {
-            e.stopPropagation(); // Hentikan event agar tidak sampai ke buku
-            const touch = e.touches[0];
-            touchStartX = touch.clientX;
-            touchStartY = touch.clientY;
-            touchStartTime = new Date().getTime();
-        }, { passive: true });
-
-        noButton.addEventListener('touchend', (e) => {
-            e.stopPropagation(); // Hentikan event agar tidak sampai ke buku
-            e.preventDefault(); // Mencegah browser mensimulasikan 'klik' setelah ini
-
-            const touch = e.changedTouches[0];
-            const duration = new Date().getTime() - touchStartTime;
-            const deltaX = Math.abs(touch.clientX - touchStartX);
-            const deltaY = Math.abs(touch.clientY - touchStartY);
-
-            // Jika sentuhan singkat (<250ms) dan tidak bergeser jauh (<10px), anggap sebagai tap
-            if (duration < 250 && deltaX < 10 && deltaY < 10) {
-                moveButton();
-            }
+            alert("YEYY, Terimakasii Sayangg <3");
         });
     }
 
